@@ -1,6 +1,8 @@
 package org.espresso.inventoryservice.controllers;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.espresso.clients.inventory.InventoryDTO;
 import org.espresso.inventoryservice.services.InventoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class InventoryControllers {
   private final InventoryService service;
 
-  @GetMapping("/{sku-code}")
+  @GetMapping
   @ResponseStatus(HttpStatus.OK)
-  public boolean isInStock(@PathVariable(value = "sku-code") String skuCode) {
-    return this.service.isInStock(skuCode);
+  public List<InventoryDTO> isInStock(@RequestParam(name = "skuCode") List<String> skuCodes) {
+    return this.service.isInStock(skuCodes);
   }
 }
