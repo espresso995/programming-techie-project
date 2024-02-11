@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@FeignClient("inventory")
+@FeignClient("inventory-service")
 public interface InventoryClient {
 
   @GetMapping("api/v1/inventories")
