@@ -13,6 +13,7 @@
         <module>order-service</module>
         <module>inventory-service</module>
         <module>clients</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>

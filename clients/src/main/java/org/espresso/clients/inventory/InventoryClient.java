@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@FeignClient(name = "inventory", url = "http://localhost:8083")
+@FeignClient("inventory")
 public interface InventoryClient {
 
   @GetMapping("api/v1/inventories")

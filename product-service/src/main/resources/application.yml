@@ -12,3 +12,8 @@ spring:
       password: password
       authentication-database: admin
       database: product-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
