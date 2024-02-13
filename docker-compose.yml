@@ -39,5 +39,21 @@ services:
     ports:
       - "3306:3306"
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    restart: unless-stopped
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HOSTNAME_STRICT_HTTPS: false
+    ports:
+      - "8181:8080"
+    command:
+      - start-dev
+      - --import-realm
+    volumes:
+      - /home/keycloak/realm.json:/opt/keycloak/data/import/realm.json
+
 volumes:
   my-db:
