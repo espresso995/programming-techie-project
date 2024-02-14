@@ -20,7 +20,7 @@ public class OrderService {
   private final OrderRepository repository;
   private final InventoryClient inventoryClient;
 
-  public void placeOrder(OrderDTO orderDTO) {
+  public String placeOrder(OrderDTO orderDTO) {
     List<OrderLineItem> orderLineItems =
         orderDTO.getOrderLineItems().stream()
             .map(
@@ -48,5 +48,6 @@ public class OrderService {
             .orderLineItems(orderLineItems)
             .build();
     this.repository.save(order);
+    return "Order placed successfully";
   }
 }
